@@ -10,6 +10,48 @@ public class App {
         return a+b;
     }
 
+    static void accesoLibro(ArrayList<Libro> biblioteca, int libroIndex){
+        Scanner input2 = new Scanner(System.in);
+        Libro librito = biblioteca.get(libroIndex);
+        System.out.println("\n--Bienvenido al menu de opciones de libro");
+        System.out.println("Seleccione una de las opciones a realizar");
+        System.out.println("[1]: Editar libro");
+        System.out.println("[2]: Cambiar estado del libro");
+        System.out.println("[3]: Eliminar libro");
+        String opcion = input2.next().trim();
+
+        int intOpcion = 0;
+        try {
+            intOpcion = Integer.parseInt(opcion);
+        }
+        catch (Exception e) {
+            System.out.println("Opcion invalida. Por favor intentelo nuevamente.");
+        }
+
+        //Editar libro
+        if (intOpcion == 1){
+            input2.nextLine();
+            System.out.println("Ingrese el nuevo titulo del libro");
+            String aCambiar = input2.nextLine();
+            librito.setTitulo(aCambiar);
+        }
+
+        //Cambiar estado libro
+        else if (intOpcion == 2){
+        }
+
+        //Eliminar libro
+        else if (intOpcion == 3){
+            biblioteca.remove(libroIndex);
+            System.out.println("**Se ha eliminado el libro!**");
+        }
+
+        else{
+
+        }
+        //input2.close();
+    }
+
     //Funcion Main
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -21,8 +63,8 @@ public class App {
             System.out.println("[1]: Registrar un libro");
             System.out.println("[2]: Buscar un libro");
             System.out.println("[3]: Ver lista de todos los libros");
-            System.out.println("[4]: Salir del programa");
-            System.out.println("[5]: Hardcodear libro");
+            System.out.println("[4]: Hardcodear libro");
+            System.out.println("[5]: Salir del programa");
             String opcion = input.next().trim();
 
             int intOpcion;
@@ -83,6 +125,10 @@ public class App {
             else if (intOpcion == 3){
                 int index = 0;
                 System.out.println("\n------Lista de todos los Libros registrados");
+                if (biblioteca.size() == 0){
+                    System.out.println("**No existen libros registrados en la biblioteca**");
+                    continue;
+                }
                 System.out.println("Ingrese el numero del libro con el que desea interactuar");
                 while (index < biblioteca.size()){
                     System.out.println("[" + index + "]: " + biblioteca.get(index));
@@ -102,21 +148,25 @@ public class App {
                     System.out.println("Opcion invalida. Por favor intentelo nuevamente");
                 }
                 else{
-                    
+                    accesoLibro(biblioteca, intOpcion);
+                    continue;
                 }
 
 
             }
-            //Salir
-            else if (intOpcion == 4){
-                break;
-            }
+
             //Hardcodeo libro test
-            else if (intOpcion == 5){
+            else if (intOpcion == 4){
                 Libro nuevoLibro = new Libro("Persona 5", "Atlus", "2017", 
                 "107", "Sony", "RPG", "24", "M", "Disponible", "Bien weno el juego");
                 biblioteca.add(nuevoLibro);
             }
+
+            //Salir
+            else if (intOpcion == 5){
+                break;
+            }
+
             else{
                 System.out.println("Opcion invalida. Por favor intentelo nuevamente");
                 continue;
@@ -124,6 +174,6 @@ public class App {
         }
       
 
-        input.close();
+        //input.close();
     }
 }
