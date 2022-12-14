@@ -13,7 +13,8 @@ public class App {
     static void accesoLibro(ArrayList<Libro> biblioteca, int libroIndex){
         Scanner input2 = new Scanner(System.in);
         Libro librito = biblioteca.get(libroIndex);
-        System.out.println("\n--Bienvenido al menu de opciones de libro");
+        System.out.println("\n----Bienvenido al menu de opciones de libro");
+        System.out.println("Actualmente tiene seleccionado el libro con el siguiente titulo: " + librito.titulo);
         System.out.println("Seleccione una de las opciones a realizar");
         System.out.println("[1]: Editar libro");
         System.out.println("[2]: Cambiar estado del libro");
@@ -38,12 +39,40 @@ public class App {
 
         //Cambiar estado libro
         else if (intOpcion == 2){
+            input2.nextLine();
+            System.out.println("\nIngrese la opcion del nuevo estado");
+            System.out.println("El estado actual es: " + librito.estado);
+            System.out.println("[1]: Disponible");
+            System.out.println("[2]: Prestado");
+            System.out.println("[3]: Extraviado");
+            String nuevoEstado = input2.nextLine();
+            intOpcion = 0;
+            try {
+                intOpcion = Integer.parseInt(nuevoEstado);
+            }
+            catch (Exception e) {
+                System.out.println("Opcion invalida. Por favor intentelo nuevamente.");
+                return;
+            }
+            if (intOpcion == 1){
+                librito.estado = "Disponible";
+                System.out.println("**Estado actualizado exitosamente!**");
+            }
+            else if (intOpcion == 2){
+                librito.estado = "Prestado";
+            }
+            else if (intOpcion == 3){
+                librito.estado = "Extraviado";
+            }
+            else{
+                System.out.println("Opcion invalida. Por favor intentelo nuevamente.");
+            }
         }
 
         //Eliminar libro
         else if (intOpcion == 3){
             biblioteca.remove(libroIndex);
-            System.out.println("**Se ha eliminado el libro!**");
+            System.out.println("**Se ha eliminado exitosamente el libro!**");
         }
 
         else{
