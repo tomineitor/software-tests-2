@@ -32,9 +32,93 @@ public class App {
         //Editar libro
         if (intOpcion == 1){
             input2.nextLine();
-            System.out.println("Ingrese el nuevo titulo del libro");
-            String aCambiar = input2.nextLine();
-            librito.setTitulo(aCambiar);
+            System.out.println("\nIngrese la opcion de lo que desea editar");
+            System.out.println("[1]: Titulo  |  (Actualmente) " + librito.titulo);
+            System.out.println("[2]: Autor  |  (Actualmente) " + librito.autor);
+            System.out.println("[3]: Fecha edicion  |  (Actualmente) " + librito.fecha);
+            System.out.println("[4]: Numero de paginas  |  (Actualmente) " + librito.paginas);
+            System.out.println("[5]: Editorial  |  (Actualmente) " + librito.editorial);
+            System.out.println("[6]: Genero  |  (Actualmente) " + librito.genero);
+            System.out.println("[7]: ISBN  |  (Actualmente) " + librito.isbn);
+            System.out.println("[8]: Estante  |  (Actualmente) " + librito.estante);
+            System.out.println("[9]: Descripcion  |  (Actualmente) " + librito.descripcion);
+            Integer opcionEdit = 0;
+            try {
+                opcionEdit = input2.nextInt();
+            }
+            catch (Exception e) {
+                System.out.println("Opcion invalida. Por favor intentelo nuevamente.");
+                return;
+            }
+
+            if (opcionEdit == 1){
+                input2.nextLine();
+                System.out.println("Ingrese el nuevo titulo");
+                String nuevo = input2.nextLine();
+                librito.titulo = nuevo;
+                System.out.println("**Titulo actualizado exitosamente**");
+            }
+            else if (opcionEdit == 2){
+                input2.nextLine();
+                System.out.println("Ingrese el nuevo autor");
+                String nuevo = input2.nextLine();
+                librito.autor = nuevo;
+                System.out.println("**Autor actualizado exitosamente**");
+            }
+            else if (opcionEdit == 3){
+                input2.nextLine();
+                System.out.println("Ingrese la nueva fecha de edicion");
+                String nuevo = input2.nextLine();
+                librito.fecha = nuevo;
+                System.out.println("**Fecha actualizada exitosamente**");
+            }
+            else if (opcionEdit == 4){
+                input2.nextLine();
+                System.out.println("Ingrese el nuevo numero de paginas");
+                String nuevo = input2.nextLine();
+                librito.paginas = nuevo;
+                System.out.println("**Numero de paginas actualizado exitosamente**");
+            }
+            else if (opcionEdit == 5){
+                input2.nextLine();
+                System.out.println("Ingrese la nueva editorial");
+                String nuevo = input2.nextLine();
+                librito.editorial = nuevo;
+                System.out.println("**Editorial actualizada exitosamente**");
+            }
+            else if (opcionEdit == 6){
+                input2.nextLine();
+                System.out.println("Ingrese el nuevo genero");
+                String nuevo = input2.nextLine();
+                librito.genero = nuevo;
+                System.out.println("**Genero actualizado exitosamente**");
+            }
+            else if (opcionEdit == 7){
+                input2.nextLine();
+                System.out.println("Ingrese el nuevo ISBN");
+                String nuevo = input2.nextLine();
+                librito.isbn = nuevo;
+                System.out.println("**ISBN actualizado exitosamente**");
+            }
+            else if (opcionEdit == 8){
+                input2.nextLine();
+                System.out.println("Ingrese el nuevo estante");
+                String nuevo = input2.nextLine();
+                librito.estante = nuevo;
+                System.out.println("**Estante actualizado exitosamente**");
+            }
+            else if (opcionEdit == 9){
+                input2.nextLine();
+                System.out.println("Ingrese la nueva descripcion");
+                String nuevo = input2.nextLine();
+                librito.descripcion = nuevo;
+                System.out.println("**Descripcion actualizada exitosamente**");
+            }
+            else {
+                System.out.println("Opcion invalida. Por favor intentelo nuevamente.");
+            }
+
+            
         }
 
         //Cambiar estado libro
@@ -60,9 +144,11 @@ public class App {
             }
             else if (intOpcion == 2){
                 librito.estado = "Prestado";
+                System.out.println("**Estado actualizado exitosamente!**");
             }
             else if (intOpcion == 3){
                 librito.estado = "Extraviado";
+                System.out.println("**Estado actualizado exitosamente!**");
             }
             else{
                 System.out.println("Opcion invalida. Por favor intentelo nuevamente.");
