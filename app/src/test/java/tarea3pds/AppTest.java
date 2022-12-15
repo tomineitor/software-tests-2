@@ -10,12 +10,14 @@ public class AppTest {
 
     App claseTest = new App();
 
-    @Test public void testSuma() {
+    @Test
+    public void testSuma() {
         //App classUnderTest = new App();
         assertEquals(3, claseTest.suma(1, 2));
     }
 
-    @Test public void testSuma2() {
+    @Test
+    public void testSuma2() {
         //App classUnderTest = new App();
         assertEquals(2, claseTest.suma(1, 2));
     }

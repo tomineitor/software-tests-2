@@ -234,6 +234,87 @@ public class App {
             }
             //Buscar Libro
             else if (intOpcion == 2){
+                ArrayList<Libro> resultados = new ArrayList<>();
+                if (biblioteca.size() == 0){
+                    System.out.println("\n**No existen libros registrados en la biblioteca**");
+                    continue;
+                }
+                System.out.println("Ingrese el metodo de busqueda");
+                System.out.println("[1]: Buscar por titulo");
+                System.out.println("[2]: Buscar por autor");
+                System.out.println("[3]: Buscar por ISBN");
+                Integer seleccion = 0;
+                try {
+                    seleccion = input.nextInt();
+                }
+                catch (Exception e) {
+                    System.out.println("Opcion invalida. Por favor intentelo nuevamente.");
+                    continue;
+                }
+
+                //Buscar por titulo
+                if (seleccion == 1){
+                    input.nextLine();
+                    System.out.println("Escriba el titulo que desea buscar");
+                    String busqueda = input.nextLine();
+                    for (Libro librito : biblioteca) {
+                        if (librito.titulo.toLowerCase().contains(busqueda.toLowerCase())){
+                            resultados.add(librito);
+                        }
+                    }
+                }
+                //Buscar por autor
+                else if (seleccion == 2){
+                    input.nextLine();
+                    System.out.println("Escriba el autor que desea buscar");
+                    String busqueda = input.nextLine();
+                    for (Libro librito : biblioteca) {
+                        if (librito.autor.toLowerCase().contains(busqueda.toLowerCase())){
+                            resultados.add(librito);
+                        }
+                    }
+                }
+                //Buscar por ISBN
+                else if (seleccion == 3){
+                    input.nextLine();
+                    System.out.println("Escriba el ISBN que desea buscar");
+                    String busqueda = input.nextLine();
+                    for (Libro librito : biblioteca) {
+                        if (librito.isbn.equals(busqueda)){
+                            resultados.add(librito);
+                        }
+                    }
+                }
+
+                System.out.println("\n--Resultados de su busqueda");
+                int index = 0;
+                if (resultados.size() == 0){
+                    System.out.println("**No existen libros registrados en la biblioteca**");
+                    continue;
+                }
+                System.out.println("Ingrese el numero del libro con el que desea interactuar");
+                while (index < resultados.size()){
+                    System.out.println("[" + index + "]: " + resultados.get(index));
+                    index += 1;
+                }
+                opcion = input.next().trim();
+                try {
+                intOpcion = Integer.parseInt(opcion);
+                }
+                catch (Exception e) {
+                    System.out.println("Opcion invalida. Por favor intentelo nuevamente.");
+                    continue;
+                }
+
+                if (intOpcion >= resultados.size() || intOpcion < 0){
+                    System.out.println("Opcion invalida. Por favor intentelo nuevamente");
+                }
+                else{
+                    Libro aux = resultados.get(intOpcion);
+                    intOpcion = biblioteca.indexOf(aux);
+                    accesoLibro(biblioteca, intOpcion);
+                    continue;
+                }
 
             }
             //Ver Lista Libros
@@ -270,10 +351,21 @@ public class App {
 
             }
 
-            //Hardcodeo libro test
+            //Poblar Biblioteca
             else if (intOpcion == 4){
-                Libro nuevoLibro = new Libro("Persona 5", "Atlus", "2017", 
-                "107", "Sony", "RPG", "24", "M", "Disponible", "Bien weno el juego");
+                Libro nuevoLibro = new Libro("Harry Potter y La Piedra Filosofal", "Joanne K. Rowling", "2021", 
+                "285", "Salamandra", "Narrativa Juvenil", "9789878000107", "H", "Disponible",
+                "El niño ese que es como huerfano pero hace magia");
+                biblioteca.add(nuevoLibro);
+
+                nuevoLibro = new Libro("Cancion de Hielo y Fuego 1: Juego de Tronos", "George R. R. Martin", "2015", 
+                "800", "Debolsillo", "Fantasia", "9789563251951", "F", "Disponible",
+                "El libro basado en la serie Juego de Tronos, o algo asi");
+                biblioteca.add(nuevoLibro);
+
+                nuevoLibro = new Libro("Seconds", "Bryan Lee O' Malley", "2014", 
+                "336", "Debolsillo", "Literatura contemporanea", "9788490623145", "C", "Prestado",
+                "Un comic muy bueno y relativamente corto del creador de Scott Pilgrim");
                 biblioteca.add(nuevoLibro);
             }
 
