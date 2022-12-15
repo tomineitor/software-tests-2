@@ -31,3 +31,6 @@ Una vez ejecutadas las pruebas, se generará un archivo (index.html) donde se en
 ```
 software-tests-2\app\build\reports\tests\test\index.html
 ```
+## Comentarios Adicionales
+
+- Dentro del programa mismo, en su menú principal, existe una opción que cargará automáticamente 3 libros en el sistema.
