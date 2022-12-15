@@ -6,16 +6,12 @@ import java.util.*;
 
 public class App {
 
-    public int suma(int a, int b) {
-        return a+b;
-    }
-
     static void accesoLibro(ArrayList<Libro> biblioteca, int libroIndex){
         Scanner input2 = new Scanner(System.in);
         Libro librito = biblioteca.get(libroIndex);
         System.out.println("\n----Bienvenido al menu de opciones de libro");
         System.out.println("Actualmente tiene seleccionado el libro con el siguiente titulo: " + librito.titulo);
-        System.out.println("Seleccione una de las opciones a realizar");
+        System.out.println("Seleccione una de las opciones a realizar  (ingrese la tecla \"s\" para volver atras)");
         System.out.println("[1]: Editar libro");
         System.out.println("[2]: Cambiar estado del libro");
         System.out.println("[3]: Eliminar libro");
@@ -32,7 +28,7 @@ public class App {
         //Editar libro
         if (intOpcion == 1){
             input2.nextLine();
-            System.out.println("\nIngrese la opcion de lo que desea editar");
+            System.out.println("\nIngrese la opcion de lo que desea editar  (ingrese la tecla \"s\" para volver atras)");
             System.out.println("[1]: Titulo  |  (Actualmente) " + librito.titulo);
             System.out.println("[2]: Autor  |  (Actualmente) " + librito.autor);
             System.out.println("[3]: Fecha edicion  |  (Actualmente) " + librito.fecha);
@@ -124,7 +120,7 @@ public class App {
         //Cambiar estado libro
         else if (intOpcion == 2){
             input2.nextLine();
-            System.out.println("\nIngrese la opcion del nuevo estado");
+            System.out.println("\nIngrese la opcion del nuevo estado (ingrese la tecla \"s\" para volver atras)");
             System.out.println("El estado actual es: " + librito.estado);
             System.out.println("[1]: Disponible");
             System.out.println("[2]: Prestado");
@@ -178,7 +174,7 @@ public class App {
             System.out.println("[1]: Registrar un libro");
             System.out.println("[2]: Buscar un libro");
             System.out.println("[3]: Ver lista de todos los libros");
-            System.out.println("[4]: Hardcodear libro");
+            System.out.println("[4]: Poblar biblioteca (3 libros)");
             System.out.println("[5]: Salir del programa");
             String opcion = input.next().trim();
 
@@ -239,7 +235,7 @@ public class App {
                     System.out.println("\n**No existen libros registrados en la biblioteca**");
                     continue;
                 }
-                System.out.println("Ingrese el metodo de busqueda");
+                System.out.println("Ingrese el metodo de busqueda (ingrese la tecla \"s\" para volver atras)");
                 System.out.println("[1]: Buscar por titulo");
                 System.out.println("[2]: Buscar por autor");
                 System.out.println("[3]: Buscar por ISBN");
@@ -292,7 +288,7 @@ public class App {
                     System.out.println("**No existen libros registrados en la biblioteca**");
                     continue;
                 }
-                System.out.println("Ingrese el numero del libro con el que desea interactuar");
+                System.out.println("Ingrese el numero del libro con el que desea interactuar (ingrese la tecla \"s\" para volver atras)");
                 while (index < resultados.size()){
                     System.out.println("[" + index + "]: " + resultados.get(index));
                     index += 1;
@@ -325,7 +321,7 @@ public class App {
                     System.out.println("**No existen libros registrados en la biblioteca**");
                     continue;
                 }
-                System.out.println("Ingrese el numero del libro con el que desea interactuar");
+                System.out.println("Ingrese el numero del libro con el que desea interactuar (ingrese la tecla \"s\" para volver atras)");
                 while (index < biblioteca.size()){
                     System.out.println("[" + index + "]: " + biblioteca.get(index));
                     index += 1;

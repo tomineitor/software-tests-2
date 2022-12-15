@@ -58,9 +58,42 @@ public class Libro {
         this.descripcion = descripcion;
     }
 
+    //Con esto se puede printear el objeto Libro por consola
     public String toString() {
         return ("(Titulo) " + this.titulo + " | (Autor/es) " + this.autor + " | (fecha) " + this.fecha + " | (paginas) " + this.paginas + " | (editorial) " + this.editorial + 
         " | (genero) " + this.genero + " | (ISBN) " + this.isbn + " | (estante) " + this.estante + " | (estado) " + this.estado + " | (descripcion) " + this.descripcion);
+    }
+
+    //Getters
+    public String getTitulo() {
+        return titulo;
+    }
+    public String getAutor() {
+        return autor;
+    }
+    public String getFecha() {
+        return fecha;
+    }
+    public String getPaginas() {
+        return paginas;
+    }
+    public String getEditorial() {
+        return editorial;
+    }
+    public String getGenero() {
+        return genero;
+    }
+    public String getIsbn() {
+        return isbn;
+    }
+    public String getEstante() {
+        return estante;
+    }
+    public String getEstado() {
+        return estado;
+    }
+    public String getDescripcion() {
+        return descripcion;
     }
 
 }

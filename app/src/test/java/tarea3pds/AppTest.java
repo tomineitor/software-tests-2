@@ -3,22 +3,65 @@
  */
 package tarea3pds;
 
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.util.ArrayList;
 
 public class AppTest {
 
-    App claseTest = new App();
+    ArrayList<Libro> bibliotecaTest;
+    Libro libroTest1;
+    Libro libroTest2;
+    Libro libroTest3;
 
-    @Test
-    public void testSuma() {
-        //App classUnderTest = new App();
-        assertEquals(3, claseTest.suma(1, 2));
+
+    //Se generan 3 libros y se añaden a la "biblioteca"
+    @Before
+    public void setUp() {
+        bibliotecaTest = new ArrayList<>();
+        libroTest1 = new Libro("Harry Potter y La Piedra Filosofal", "Joanne K. Rowling", "2021", 
+                "285", "Salamandra", "Narrativa Juvenil", "9789878000107", "H", "Disponible",
+                "El niño ese que es como huerfano pero hace magia");
+        bibliotecaTest.add(libroTest1);
+
+        libroTest2 = new Libro("Cancion de Hielo y Fuego 1: Juego de Tronos", "George R. R. Martin", "2015", 
+                "800", "Debolsillo", "Fantasia", "9789563251951", "F", "Disponible",
+                "El libro basado en la serie Juego de Tronos, o algo asi");
+        bibliotecaTest.add(libroTest2);
+
+        libroTest3 = new Libro("Seconds", "Bryan Lee O' Malley", "2014", 
+                "336", "Debolsillo", "Literatura contemporanea", "9788490623145", "C", "Prestado",
+                "Un comic muy bueno y relativamente corto del creador de Scott Pilgrim");
+        bibliotecaTest.add(libroTest3);
     }
 
     @Test
-    public void testSuma2() {
-        //App classUnderTest = new App();
-        assertEquals(2, claseTest.suma(1, 2));
+    public void BibliotecaNoVacia() {
+        //Verificar que despues del set up inicial la biblioteca no este vacia
+        assertTrue("hola", bibliotecaTest.size() > 0);
+    }
+
+    @Test
+    public void getTituloTest(){
+        //sabemos que el titulo del libro3 es "Seconds"
+        assertTrue(libroTest3.getTitulo().equals("Seconds"));
+    }
+
+    @Test
+    public void getPaginasTest(){
+        //sabemos que las paginas del libro3 son 336
+        assertTrue(libroTest3.getPaginas().equals("336"));
+    }
+
+    @Test
+    public void cambioEstado(){
+        //Tenemos un estado inicial de "Disponible"
+
+        //Lo cambiaremos a Prestado
+        libroTest1.setEstado("Prestado");
+
+        //Verificamos el cambio
+        assertTrue(libroTest1.getEstado().equals("Prestado"));
     }
 }
